@@ -23,8 +23,9 @@ the community theme label.
 ## Development and checks
 
 ```powershell
-node --experimental-vm-modules --test launcher/tests/theme-startup.test.mjs
 node --test launcher/tests/saint-servan-theme.test.mjs
+# On the main branch, theme-startup.test.mjs provides additional coverage;
+# that pre-existing test file is absent from the v0.3.45 release tag.
 node --check launcher/ui/js/app.js
 $env:CHROME = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 $env:DRIVE_CHECK_SIZES = "1280x720,1920x1080"
