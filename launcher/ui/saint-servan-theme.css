@@ -74,14 +74,8 @@
   color-scheme: light;
 }
 
-/* Match the site's Arial/Helvetica typography and its no-glow UI. */
-:root[data-brand="saint-servan"] body,
-:root[data-brand="saint-servan"] button,
-:root[data-brand="saint-servan"] input,
-:root[data-brand="saint-servan"] select,
-:root[data-brand="saint-servan"] textarea {
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* Preserve the launcher's bundled Inter font, including its startup font check.
+   The palette, spacing, shape and motion still match the Saint-Servan website. */
 
 :root[data-brand="saint-servan"] :focus-visible {
   outline: 2px solid var(--accent);

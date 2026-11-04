@@ -37,3 +37,7 @@ test('desktop branding retains openOMSI identity and adds Saint-Servan icon', ()
   assert.match(app, /class="brand-site">Saint-Servan/);
   assert.match(logo, /<svg[^>]*viewBox="0 0 512 512"/);
 });
+
+test('launcher Inter font stays active for desktop selftests', () => {
+  assert.doesNotMatch(css, /font-family:\s*Arial/);
+});
