@@ -1,0 +1,8 @@
+# Do not commit original game content, players' bus transfers or local secrets.
+.env
+bin/
+content/
+data/
+downloads/
+config/server.cfg
+*.log
