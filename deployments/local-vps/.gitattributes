@@ -1,0 +1,6 @@
+# Windows checkouts must preserve Linux scripts and Docker input formats.
+*.sh text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+Dockerfile text eol=lf
+*.ps1 text eol=crlf
