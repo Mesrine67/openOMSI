@@ -45,3 +45,16 @@ cargo build --release --manifest-path launcher/src-tauri/Cargo.toml
 Avoid replacing the existing stable executable until a matching launcher
 build and game version have passed their integration tests.
 Do not commit the original OMSI 2 installation or DLC content to GitHub.
+
+## Packaging a separate portable Saint-Servan client
+
+Use launcher/scripts/package-saint-servan-client.ps1 with the arguments
+-OriginalDistribution, -CompiledLauncher, -Destination and -Version.
+The script copies every original executable, DLL and LICENSE/NOTICE into a
+separate directory, then replaces only the Tauri launcher with the custom
+compiled executable and verifies its SHA-256 hash. Never commit OMSI 2 game
+assets, binaries, DLC, local logs, Docker data or credentials.
+
+For the v0.3.45 compatibility branch, set the build environment variable
+OPENOMSI_VERSION=0.3.45 before cargo build --release; otherwise the version
+logic automatically increments the number on untagged branches.
