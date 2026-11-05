@@ -1,0 +1,252 @@
+/*
+ * Saint-Servan desktop identity for the openOMSI launcher.
+ *
+ * Palette and motion tokens are taken from the user's Saint-Servan Next.js
+ * app (app/globals.css, 2026-11-04). No dependencies or network resources.
+ *
+ * Theme is deliberately isolated behind data-brand="saint-servan", so the
+ * original openOMSI stylesheet remains available and the launcher keeps its
+ * native data-theme="light|dark" switching. No gameplay/UI logic is changed.
+ */
+
+/* Dark site tokens: background 220 65% 9%, card 219 51% 14%,
+   primary 231 100% 67%, secondary 218 43% 21%, border 218 36% 26%. */
+:root[data-brand="saint-servan"] {
+  --bg: hsl(220 65% 9%);
+  --sidebar: hsl(220 58% 11%);
+  --surface: hsl(219 51% 14%);
+  --surface-2: hsl(218 43% 21%);
+  --surface-3: hsl(219 39% 25%);
+  --control-bg: hsl(219 38% 19%);
+  --line: hsl(218 36% 26%);
+  --line-strong: hsl(218 33% 34%);
+  --text: hsl(220 33% 97%);
+  --text-2: hsl(217 24% 84%);
+  --muted: hsl(217 22% 72%);
+  --accent: hsl(231 100% 67%);
+  --accent-hover: hsl(231 100% 73%);
+  --accent-text: #fff;
+  --accent-soft: hsl(231 100% 67% / 0.16);
+  --ok: #44c495;
+  --warn: #f2ba55;
+  --danger: #f47682;
+  --danger-soft: hsl(353 85% 62% / 0.16);
+  --focus: hsl(231 100% 67% / 0.65);
+  --shadow: 0 16px 44px -20px rgba(5, 14, 33, .70);
+  --radius: 11px;
+  --radius-sm: 8px;
+  --ss-border: hsl(218 36% 26%);
+  --ss-ring: hsl(231 100% 67% / 0.35);
+  --ss-tint: hsl(231 100% 67% / 0.11);
+  --ss-hover: hsl(231 100% 67% / 0.08);
+  --ss-ease: cubic-bezier(.22, 1, .36, 1);
+  color-scheme: dark;
+}
+
+/* Light site tokens: background 217 76% 97%, card white,
+   primary 231 100% 63%, secondary 219 69% 94%, border 216 43% 85%. */
+:root[data-brand="saint-servan"][data-theme="light"] {
+  --bg: hsl(217 76% 97%);
+  --sidebar: hsl(219 69% 94%);
+  --surface: #fff;
+  --surface-2: hsl(219 69% 94%);
+  --surface-3: hsl(219 85% 92%);
+  --control-bg: hsl(220 58% 93%);
+  --line: hsl(216 43% 85%);
+  --line-strong: hsl(216 41% 77%);
+  --text: hsl(220 40% 16%);
+  --text-2: hsl(219 23% 32%);
+  --muted: hsl(219 19% 41%);
+  --accent: hsl(231 100% 63%);
+  --accent-hover: hsl(231 86% 54%);
+  --accent-text: #fff;
+  --accent-soft: hsl(231 100% 63% / 0.11);
+  --ok: #087d5c;
+  --warn: #a56a07;
+  --danger: #b42337;
+  --danger-soft: hsl(353 75% 48% / 0.10);
+  --focus: hsl(231 100% 63% / 0.55);
+  --shadow: 0 14px 36px -20px rgba(18, 38, 75, .27);
+  --ss-border: hsl(216 43% 85%);
+  --ss-ring: hsl(231 100% 63% / 0.27);
+  --ss-tint: hsl(231 100% 63% / 0.065);
+  --ss-hover: hsl(231 100% 63% / 0.055);
+  color-scheme: light;
+}
+
+/* Preserve the launcher's bundled Inter font, including its startup font check.
+   The palette, spacing, shape and motion still match the Saint-Servan website. */
+
+:root[data-brand="saint-servan"] :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+:root[data-brand="saint-servan"] .sidebar {
+  border-right: 1px solid var(--ss-border);
+}
+
+:root[data-brand="saint-servan"] .brand {
+  gap: 11px;
+  padding-top: 4px;
+  padding-bottom: 21px;
+}
+:root[data-brand="saint-servan"] .brand img {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  flex: none;
+}
+:root[data-brand="saint-servan"] .brand b {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+}
+:root[data-brand="saint-servan"] .brand small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+:root[data-brand="saint-servan"] .brand-site {
+  color: var(--accent);
+  font-weight: 700;
+}
+:root[data-brand="saint-servan"] .sidebar.icons .brand {
+  padding-bottom: 15px;
+}
+
+:root[data-brand="saint-servan"] .nav-title {
+  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: .095em;
+  font-weight: 700;
+}
+:root[data-brand="saint-servan"] .nav-item {
+  border: 1px solid transparent;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+:root[data-brand="saint-servan"] .nav-item:hover {
+  background: var(--ss-hover);
+  border-color: var(--ss-border);
+}
+:root[data-brand="saint-servan"] .nav-item.active {
+  background: var(--accent-soft);
+  border-color: var(--ss-ring);
+  color: var(--text);
+  font-weight: 600;
+}
+:root[data-brand="saint-servan"] .nav-item.active svg {
+  color: var(--accent);
+}
+
+:root[data-brand="saint-servan"] .driver-chip {
+  border: 1px solid var(--ss-border);
+  background: var(--surface);
+}
+:root[data-brand="saint-servan"] .driver-chip:hover {
+  background: var(--surface-2);
+}
+:root[data-brand="saint-servan"] .driver-chip.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--ss-ring);
+}
+:root[data-brand="saint-servan"] .avatar {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+:root[data-brand="saint-servan"] .main {
+  background: var(--bg);
+}
+:root[data-brand="saint-servan"] .page-head h1 {
+  font-weight: 700;
+  letter-spacing: -.032em;
+}
+:root[data-brand="saint-servan"] .page-head p {
+  color: var(--muted);
+}
+
+:root[data-brand="saint-servan"] .card,
+:root[data-brand="saint-servan"] .drive-panel,
+:root[data-brand="saint-servan"] .dialog {
+  border: 1px solid var(--ss-border);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 0 rgba(7, 20, 49, .025);
+}
+:root[data-brand="saint-servan"] .card-head h2 {
+  letter-spacing: -.012em;
+}
+:root[data-brand="saint-servan"] .btn {
+  border: 1px solid var(--ss-border);
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease,
+    box-shadow 150ms ease, transform 250ms var(--ss-ease);
+}
+:root[data-brand="saint-servan"] .btn:hover:not(:disabled) {
+  border-color: var(--line-strong);
+}
+:root[data-brand="saint-servan"] .btn.primary {
+  border-color: transparent;
+  box-shadow: 0 2px 6px rgba(42, 59, 170, .12);
+}
+:root[data-brand="saint-servan"] .btn.primary:hover:not(:disabled) {
+  border-color: transparent;
+  box-shadow: 0 5px 16px rgba(42, 59, 170, .18);
+}
+:root[data-brand="saint-servan"] .btn.ghost {
+  border-color: transparent;
+}
+:root[data-brand="saint-servan"] .input,
+:root[data-brand="saint-servan"] .select {
+  border: 1px solid var(--ss-border);
+}
+:root[data-brand="saint-servan"] .input:focus,
+:root[data-brand="saint-servan"] .select:focus,
+:root[data-brand="saint-servan"] .dropdown .select.open {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--ss-ring);
+}
+:root[data-brand="saint-servan"] .dropdown-list {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+:root[data-brand="saint-servan"] .dropdown-item:hover,
+:root[data-brand="saint-servan"] .list-item:hover {
+  background: var(--ss-hover);
+}
+:root[data-brand="saint-servan"] .tabs button.on {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+:root[data-brand="saint-servan"] .notice,
+:root[data-brand="saint-servan"] .toast {
+  border: 1px solid var(--ss-border);
+}
+:root[data-brand="saint-servan"] .toast {
+  box-shadow: var(--shadow);
+}
+
+:root[data-brand="saint-servan"] ::selection {
+  background: hsl(231 100% 67% / .25);
+  color: var(--text);
+}
+:root[data-brand="saint-servan"] ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+:root[data-brand="saint-servan"] ::-webkit-scrollbar-thumb {
+  border-width: 2px;
+}
+@media (hover: hover) and (pointer: fine) {
+  :root[data-brand="saint-servan"] .card.t-card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-brand="saint-servan"] .nav-item,
+  :root[data-brand="saint-servan"] .btn {
+    transition: none !important;
+    animation: none !important;
+  }
+}
