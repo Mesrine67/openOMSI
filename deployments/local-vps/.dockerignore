@@ -1,0 +1,6 @@
+**
+!Dockerfile
+!bin/
+!bin/openomsi
+!bin/libsteam_api.so
+!bin/LICENSE

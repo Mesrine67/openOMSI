@@ -1,0 +1,19 @@
+# First test: stock Grundorf. Change map only AFTER Saint-Servan is installed in OMSI_DIR.
+name = Saint-Servan Lab
+motd = Local test server
+map = maps/Grundorf/global.cfg
+max_players = 4
+traffic = 5
+timetable = 1
+passengers = 1
+passenger_density = 0.5
+radius = 0
+port = 27015
+web_port = 27025
+tunnel = 0
+public_server = 0
+share_maps = 0
+share_positions = 0
+accept_uploads = 1
+uploads_keep_days = 30
+admin_web = local

@@ -1,0 +1,25 @@
+name: openomsi-lab
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: openomsi-lab-server:0.3.45
+    restart: unless-stopped
+    ports:
+      - "${BIND_ADDRESS:-127.0.0.1}:27015:27015/udp"
+      - "${BIND_ADDRESS:-127.0.0.1}:27015:27015/tcp"
+      - "${BIND_ADDRESS:-127.0.0.1}:27025:27025/tcp"
+    volumes:
+      - "${OMSI_DIR:?Set OMSI_DIR in .env}:/omsi:ro"
+      - "./config:/server"
+      - "./content:/content"
+      - "./data:/root/.openomsi"
+    environment:
+      OMSI_CONTENT: /content
+    stop_grace_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
